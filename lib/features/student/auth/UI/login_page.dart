@@ -3,6 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
 import 'package:skill_up/features/role_selection_page.dart';
+import 'package:skill_up/features/student/auth/UI/forgot_password_page.dart';
 import 'package:skill_up/features/student/auth/UI/sign_up_page.dart';
 import 'package:skill_up/shared/loading_indicator.dart';
 
@@ -127,7 +128,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       validator: (value) => value == null || value.isEmpty ? 'Please enter your password' : null,
                     ),
-                    SizedBox(height: 32),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                             PageTransition(
                               type: PageTransitionType.rightToLeft,
                               duration: Duration(milliseconds: 300),
-                              // child: ForgotPassword(),
+                              child: ForgotPassword(),
                             ),
                           );
                         },
@@ -177,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: _mockLogin,
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                          backgroundColor: Colors.black,
+                          backgroundColor: AppColors.bgColor,
                         ),
                         child: _isLoading
                             ? LoadingIndicator()

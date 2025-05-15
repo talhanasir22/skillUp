@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
 import 'package:skill_up/features/student/chat/UI/chat_page.dart';
-import 'package:skill_up/features/student/course/UI/course_page.dart';
+import 'package:skill_up/features/student/course/UI/create_course_page.dart';
 import 'package:skill_up/features/student/home/UI/home_page.dart';
 import 'package:skill_up/features/student/profile/UI/profile_page.dart';
 import 'package:skill_up/features/student/search/UI/search_page.dart';
@@ -31,7 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   late final List<Widget> _pages = [
     HomePage(onNavIndexChange: _updateNavIndex), // Pass callback function
-    CoursePage(),
+    CreateCoursePage(),
     Container(),
     ChatPage(),
     ProfilePage(),

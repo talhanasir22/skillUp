@@ -3,14 +3,14 @@ import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
 import 'package:skill_up/shared/course_annoucement_banner.dart';
 
-class CoursePage extends StatefulWidget {
-  const CoursePage({super.key});
+class CreateCoursePage extends StatefulWidget {
+  const CreateCoursePage({super.key});
 
   @override
-  State<CoursePage> createState() => _CoursePageState();
+  State<CreateCoursePage> createState() => _CreateCoursePageState();
 }
 
-class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateMixin {
+class _CreateCoursePageState extends State<CreateCoursePage> with SingleTickerProviderStateMixin {
   String? selectedCategory;
   String? selectedDuration;
   late TabController _tabController;

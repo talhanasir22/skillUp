@@ -3,6 +3,13 @@ import 'package:page_transition/page_transition.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
 import 'package:skill_up/features/role_selection_page.dart';
+import 'package:skill_up/features/student/profile/UI/assignment_screen.dart';
+import 'package:skill_up/features/student/profile/UI/edit_profile_page.dart';
+import 'package:skill_up/features/student/profile/UI/grade_screen.dart';
+import 'package:skill_up/features/student/profile/UI/notification_setting_screen.dart';
+import 'package:skill_up/features/student/profile/UI/set_daily_target.dart';
+import 'package:skill_up/features/student/profile/UI/student_performance_page.dart';
+import 'package:skill_up/features/student/profile/UI/submission_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -63,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       context,
                       PageTransition(
                         type: PageTransitionType.rightToLeft,
-                        // child: StudentPerformancePage(),
+                        child: StudentPerformancePage(),
                       ),
                     );
                   },
@@ -99,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 PageTransition(
                   type: PageTransitionType.rightToLeft,
-                  // child: EditProfileScreen(),
+                  child: EditProfileScreen(),
                 ),
               );
             }),
@@ -108,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 PageTransition(
                   type: PageTransitionType.rightToLeft,
-                  // child: NotificationSettingScreen(),
+                  child: NotificationSettingScreen(),
                 ),
               );
             }),
@@ -117,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 PageTransition(
                   type: PageTransitionType.rightToLeft,
-                  // child: AssignmentScreen(),
+                  child: AssignmentScreen(),
                 ),
               );
             }),
@@ -126,7 +133,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 PageTransition(
                   type: PageTransitionType.rightToLeft,
-                  // child: SubmissionScreen(),
+                  child: SubmissionScreen(),
                 ),
               );
             }),
@@ -135,11 +142,19 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 PageTransition(
                   type: PageTransitionType.rightToLeft,
-                  // child: GradeScreen(),
+                  child: GradeScreen(),
                 ),
               );
             }),
-            _buildTextButton("Set Daily Target", () {}),
+            _buildTextButton("Set Daily Target", () {
+                Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  child: SetDailyTargetScreen(),
+                ),
+              );
+            }),
             _buildTextButton("Help", () {}),
             _buildTextButton("Customer Support", () {}),
             _buildTextButton("Logout", () {

@@ -32,6 +32,7 @@ class _SuccessPageState extends State<SuccessPage> {
                   const SizedBox(height: 60),
                   Center(
                     child: CircleAvatar(
+                      backgroundColor: AppColors.bgColor,
                       radius:  40,
                         child: Icon(Icons.done,color: AppColors.theme,size: 60,weight: 200,)),
                   ),
@@ -60,7 +61,7 @@ class _SuccessPageState extends State<SuccessPage> {
                           if (mounted) {
                               Navigator.pushAndRemoveUntil(context,
                                   PageTransition(
-                                    type: PageTransitionType.leftToRight,
+                                    type: PageTransitionType.rightToLeft,
                                     duration: Duration(milliseconds: 500),
                                     child: BottomNavBar(),
                                   ), (route) =>false);
@@ -71,7 +72,7 @@ class _SuccessPageState extends State<SuccessPage> {
                         },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        backgroundColor: Colors.black,
+                        backgroundColor: AppColors.bgColor,
                       ),
                       child: _isLoading ? LoadingIndicator() : Text("Get Started", style: AppText.buttonTextStyle()),
                     ),

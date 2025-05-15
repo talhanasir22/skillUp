@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
+import 'package:skill_up/features/student/course/UI/my_courses_page.dart';
+import 'package:skill_up/features/student/home/UI/award_page.dart';
 
 class HomePage extends StatefulWidget {
   final Function(int)? onNavIndexChange;
@@ -47,10 +50,14 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 200),
                   _buildCardWithImage(context),
-                  _buildSectionTitle("Learning Plan"),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: _buildSectionTitle("Learning Plan"),
+                    ),
                   _buildTextCard(context, "Explore courses, track progress, and master skills. Start innovating today!"),
                   _buildEdTechCard(context),
                 ],
@@ -98,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundImage: AssetImage("assets/Images/Page3.png"),
+                  backgroundImage: AssetImage("assets/Images/3.png"),
                   radius: 50,
                 ),
               ],
@@ -145,7 +152,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(" The EdTech", style: AppText.mainHeadingTextStyle().copyWith(fontSize: 23, fontWeight: FontWeight.w600, color: AppColors.theme)),
+            Text(" Skill Up", style: AppText.mainHeadingTextStyle().copyWith(fontSize: 23, fontWeight: FontWeight.w600, color: AppColors.theme)),
             Row(
               children: [
                 Padding(
@@ -167,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                       backgroundColor: AppColors.theme.withOpacity(0.8),
                       child: CircleAvatar(
                         radius: 12.5,
-                        backgroundImage: AssetImage("assets/Images/Page2.png"),
+                        backgroundImage: AssetImage("assets/Images/2.png"),
                       ),
                     ),
                   ),
@@ -208,7 +215,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           GestureDetector(
             onTap: () {
-              // Navigator.push(context, PageTransition(child: AchievementScreen(), type: PageTransitionType.rightToLeft));
+              Navigator.push(context, PageTransition(child: AwardPage(), type: PageTransitionType.rightToLeft));
             },
             child: CircleAvatar(
               radius: 18,
@@ -249,7 +256,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 5),
               RichText(
                 text: TextSpan(
-                  text: "${(timeSpentInSeconds / 60).toStringAsFixed(0)}",
+                  text: (timeSpentInSeconds / 60).toStringAsFixed(0),
                   style: AppText.mainHeadingTextStyle(),
                   children: [TextSpan(text: "/60min", style: AppText.hintTextStyle())],
                 ),
@@ -266,7 +273,7 @@ class _HomePageState extends State<HomePage> {
             ]),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: MyCourse()));
+                Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: MyCoursesPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.bgColor,

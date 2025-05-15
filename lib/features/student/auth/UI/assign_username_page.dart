@@ -113,7 +113,7 @@ class _AssignUserNamePageState extends State<AssignUserNamePage> {
                             Navigator.push(
                               context,
                               PageTransition(
-                                type: PageTransitionType.leftToRight,
+                                type: PageTransitionType.rightToLeft,
                                 duration: Duration(milliseconds: 500),
                                 child: SuccessPage(),
                               ),
@@ -128,7 +128,7 @@ class _AssignUserNamePageState extends State<AssignUserNamePage> {
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        backgroundColor: Colors.black,
+                        backgroundColor: AppColors.bgColor,
                       ),
                       child: _isLoading
                           ? LoadingIndicator()

@@ -4,7 +4,7 @@ import 'package:hexagon/hexagon.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
-import 'package:skill_up/features/student_auth/UI/login_page.dart';
+import 'package:skill_up/features/student/auth/UI/login_page.dart';
 
 
 class RoleSelectionPage extends StatelessWidget {
