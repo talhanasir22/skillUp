@@ -5,7 +5,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
 import 'package:skill_up/features/student/auth/UI/login_page.dart';
-
+import 'package:skill_up/features/teacher/auth/UI/teacher_login_page.dart';
 
 class RoleSelectionPage extends StatelessWidget {
   const RoleSelectionPage({super.key});
@@ -51,7 +51,7 @@ class RoleSelectionPage extends StatelessWidget {
                                   PageTransition(
                                     type: PageTransitionType.rightToLeft,
                                     duration: const Duration(milliseconds: 300),
-                                    // child: TeacherLoginPage(),
+                                    child: TeacherLoginPage(),
                                   ),
                                 );
                               },

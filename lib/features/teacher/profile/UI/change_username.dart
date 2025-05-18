@@ -1,0 +1,110 @@
+import 'package:flutter/material.dart';
+import 'package:skill_up/Core/app_color.dart';
+import 'package:skill_up/Core/app_text.dart';
+import 'package:skill_up/shared/loading_indicator.dart';
+
+
+class ChangeUserName extends StatefulWidget {
+  @override
+  State<ChangeUserName> createState() => _ChangeUserNameState();
+}
+
+class _ChangeUserNameState extends State<ChangeUserName> {
+  final _userNameController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool _isLoading = false;
+
+  @override
+  void dispose() {
+    _userNameController.dispose();
+    super.dispose();
+  }
+
+  void _submit() {
+    if (!_formKey.currentState!.validate()) return;
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Simulate success
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _isLoading = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Username change simulated.")),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.theme,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios),
+        ),
+      ),
+      backgroundColor: AppColors.theme,
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Change\nUserName?", style: AppText.authHeadingStyle()),
+            SizedBox(height: 20),
+            Form(
+              key: _formKey,
+              child: Center(
+                child: TextFormField(
+                  controller: _userNameController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.textFieldColor,
+                    prefixIcon: Icon(Icons.person, color: AppColors.hintIconColor),
+                    hintText: "Enter new username",
+                    hintStyle: AppText.hintTextStyle(),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.red),
+                    ),
+                  ),
+                  validator: (value) =>
+                      (value == null || value.isEmpty) ? 'Please enter a username' : null,
+                ),
+              ),
+            ),
+            SizedBox(height: 8),
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.87,
+                child: Text("* The username must be unique.", style: AppText.hintTextStyle()),
+              ),
+            ),
+            SizedBox(height: 20),
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.87,
+                height: 40,
+                child: ElevatedButton(
+                  onPressed: _isLoading ? null : _submit,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    backgroundColor: AppColors.bgColor,
+                  ),
+                  child: _isLoading
+                      ? LoadingIndicator()
+                      : Text("Submit", style: AppText.buttonTextStyle()),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:skill_up/Core/app_color.dart';
 import 'package:skill_up/Core/app_text.dart';
-import 'package:skill_up/features/student/chat/UI/chat_page.dart';
-import 'package:skill_up/features/student/course/UI/enroll_course_page.dart';
-import 'package:skill_up/features/student/home/UI/home_page.dart';
-import 'package:skill_up/features/student/profile/UI/profile_page.dart';
-import 'package:skill_up/features/student/search/UI/search_page.dart';
+import 'package:skill_up/features/teacher/chat/UI/chat_page.dart';
+import 'package:skill_up/features/teacher/course/UI/create_course_page.dart';
+import 'package:skill_up/features/teacher/home/UI/home_page.dart';
+import 'package:skill_up/features/teacher/profile/UI/profile_page.dart';
+import 'package:skill_up/features/teacher/search/UI/search_page.dart';
 class BottomNavBar extends StatefulWidget {
   final int initialIndex; // New parameter to set index initially
 
